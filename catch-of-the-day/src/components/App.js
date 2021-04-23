@@ -11,8 +11,9 @@ class App extends React.Component {
 				<div className="menu">
 					<Header tagline="I'm cool."/>
 				</div>
-				<Inventory/>
 				<Order/>
+				<Inventory/>
+
 			</div>
 		);
 
