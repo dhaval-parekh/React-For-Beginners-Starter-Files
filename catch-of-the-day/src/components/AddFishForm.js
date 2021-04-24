@@ -39,7 +39,9 @@ class AddFishForm extends React.Component {
 
 		fish.price = parseFloat( fish.price );
 
-		console.log( fish );
+		this.props.addFish( fish );
+
+		event.currentTarget.reset();
 
 	}
 }
