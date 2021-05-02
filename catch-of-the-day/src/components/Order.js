@@ -18,7 +18,12 @@ class Order extends React.Component {
 			return <li key={ key }>Sorry, { fish ? fish.name : 'fish' } is not available.</li>
 		}
 
-		return <li key={ key }>{ quantity } lbs { fish.name } - { formatPrice( ( quantity * fish.price ) ) }</li>;
+		return <li key={ key }>
+			{ quantity } lbs { fish.name } - { formatPrice( ( quantity * fish.price ) ) }
+			<button onClick={ () => {
+				this.props.removeFromOrder( key )
+			} }>&times;</button>
+		</li>;
 	}
 
 	render() {
