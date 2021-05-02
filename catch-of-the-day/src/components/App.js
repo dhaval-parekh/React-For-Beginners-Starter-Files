@@ -35,7 +35,6 @@ class App extends React.Component {
 
 		const params = this.props.match.params;
 
-		console.log( 'update', prevState );
 		localStorage.setItem( params.storeID, JSON.stringify( this.state.order ) );
 	}
 
@@ -61,6 +60,16 @@ class App extends React.Component {
 
 		// 3. Update the state.
 		this.setState( { fishes: fishes } );
+
+	}
+
+	updateFish = ( key, updatedFish ) => {
+
+		const fishes = this.state.fishes;
+
+		fishes[ key ] = updatedFish;
+
+		this.setState( { fishes } );
 
 	}
 
@@ -98,7 +107,11 @@ class App extends React.Component {
 					</ul>
 				</div>
 				<Order fishes={ this.state.fishes } order={ this.state.order }/>
-				<Inventory addFish={ this.addFish } addSampleFishes={ this.addSampleFishes }/>
+				<Inventory
+					fishes={ this.state.fishes }
+					addFish={ this.addFish }
+					updateFish={ this.updateFish }
+					addSampleFishes={ this.addSampleFishes }/>
 
 			</div>
 		);
